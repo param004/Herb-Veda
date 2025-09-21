@@ -1,0 +1,69 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env and secrets
+.env
+.env.*
+server/.env
+server/.env.*
+client/.env
+client/.env.*
+
+# Logs
+logs/
+*.log
+*.log.*
+server/logs/
+client/logs/
+
+# Build outputs
+dist/
+build/
+client/dist/
+client/build/
+server/build/
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Cache
+.cache/
+.parcel-cache/
+.eslintcache
+.turbo/
+
+# Vite/Next/Nuxt/etc
+.next/
+.nuxt/
+.svelte-kit/
+
+# TypeScript
+*.tsbuildinfo
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Temporary files
+tmp/
+temp/
+*.swp
+*.swo
+*.tmp
+
+# Images generated or optimized
+client/public/assets/
+
+# Mongo
+dump/
+
+# Misc
+server/src/.env
