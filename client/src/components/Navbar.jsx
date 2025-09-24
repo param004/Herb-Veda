@@ -33,33 +33,33 @@ export default function Navbar() {
           <span>Herb & Veda</span>
         </Link>
 
-        <div className="nav-menu">
-          <div className="nav-user">
-            <div className="user-dropdown">
-              <button 
-                className="user-name-btn"
-                onClick={() => setShowUserDropdown(!showUserDropdown)}
-              >
-                Hi, {user?.name || user?.email}
-                <span className="dropdown-arrow">▼</span>
-              </button>
-              
-              {showUserDropdown && (
-                <div className="user-dropdown-menu">
-                  <button onClick={openProfile} className="dropdown-item">
-                    Personal Info
-                  </button>
-                  <Link to="/orders" className="dropdown-item" onClick={() => setShowUserDropdown(false)}>
-                    My Orders
-                  </Link>
-                  <button onClick={logout} className="dropdown-item logout">
-                    Logout
-                  </button>
-                </div>
-              )}
-            </div>
+        <div className="nav-user">
+          <div className="user-dropdown">
+            <button 
+              className="user-name-btn"
+              onClick={() => setShowUserDropdown(!showUserDropdown)}
+            >
+              Hi, {user?.name || user?.email}
+              <span className="dropdown-arrow">▼</span>
+            </button>
+            
+            {showUserDropdown && (
+              <div className="user-dropdown-menu">
+                <button onClick={openProfile} className="dropdown-item">
+                  Personal Info
+                </button>
+                <Link to="/orders" className="dropdown-item" onClick={() => setShowUserDropdown(false)}>
+                  My Orders
+                </Link>
+                <button onClick={logout} className="dropdown-item logout">
+                  Logout
+                </button>
+              </div>
+            )}
           </div>
-          
+        </div>
+
+        <div className="nav-menu">
           <Link 
             to="/" 
             className={`nav-link ${isActive('/') ? 'active' : ''}`}

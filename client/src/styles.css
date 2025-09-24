@@ -411,9 +411,10 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
   .nav-container { 
     flex-wrap: wrap; 
     padding: 12px 15px;
+    position: relative;
   }
   .nav-brand {
-    margin-bottom: 8px;
+    flex: 1;
   }
   .nav-brand span {
     font-size: 1.2rem;
@@ -422,6 +423,57 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     width: 32px;
     height: 32px;
   }
+  .nav-user { 
+    position: absolute;
+    top: 12px;
+    right: 15px;
+  }
+  .user-name-btn {
+    font-size: 12px;
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 15px;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .user-dropdown { 
+    position: relative; 
+  }
+  .user-dropdown-menu { 
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 1000;
+    min-width: 150px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 8px 0;
+    margin-top: 4px;
+  }
+  .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    text-align: left;
+    color: var(--ink);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .dropdown-item:hover {
+    background: var(--surface);
+  }
+  .dropdown-item.logout {
+    color: var(--red, #e74c3c);
+    border-top: 1px solid var(--border);
+    margin-top: 4px;
+    padding-top: 12px;
+  }
   .nav-menu { 
     display: flex !important;
     flex-direction: row;
@@ -429,7 +481,7 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     width: 100%;
     gap: 8px;
     padding: 8px 0;
-    margin-top: 8px;
+    margin-top: 50px; /* Space for user dropdown */
     background: transparent;
     position: static;
     box-shadow: none;
@@ -447,16 +499,18 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     background: var(--surface);
   }
   .nav-menu .nav-link { 
-    padding: 6px 12px; 
+    padding: 8px 16px; 
     white-space: nowrap;
-    font-size: 13px;
-    border-radius: 15px;
+    font-size: 14px;
+    border-radius: 20px;
     background: var(--surface);
     border: 1px solid var(--border);
     min-width: fit-content;
     text-decoration: none;
+    color: var(--ink);
     font-weight: 500;
     transition: all 0.2s ease;
+    cursor: pointer;
   }
   .nav-menu .nav-link:hover {
     background: var(--green);
@@ -468,28 +522,13 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     color: white;
     border-color: var(--green);
   }
-  .nav-user { 
-    order: -1;
-    margin-left: auto;
-    margin-bottom: 0;
-  }
-  .user-name-btn {
-    font-size: 12px;
-    padding: 6px 10px;
-  }
-  .user-dropdown { 
-    position: relative; 
-  }
-  .user-dropdown-menu { 
-    position: absolute;
-    right: 0;
-    top: 100%;
-    z-index: 1000;
-    min-width: 150px;
-  }
   .cart-badge {
     font-size: 10px;
     padding: 2px 6px;
+    background: var(--red, #e74c3c);
+    color: white;
+    border-radius: 50%;
+    margin-left: 4px;
   }
   
   .contact-content { grid-template-columns: 1fr; gap: 40px; }
