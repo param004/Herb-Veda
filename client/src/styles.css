@@ -414,7 +414,7 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     position: relative;
   }
   .navbar {
-    padding-bottom: 60px; /* Add extra space for mobile nav */
+    padding-bottom: 80px; /* Add extra space for bigger mobile nav */
   }
   .nav-brand {
     align-self: flex-start;
@@ -433,13 +433,17 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     right: 15px;
   }
   .user-name-btn {
-    font-size: 12px;
-    padding: 6px 10px;
+    font-size: 14px;
+    padding: 8px 12px;
     border: 1px solid var(--border);
     background: var(--surface);
-    border-radius: 15px;
+    border-radius: 20px;
     color: var(--ink);
     cursor: pointer;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
   .user-dropdown { 
     position: relative; 
@@ -483,8 +487,8 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     flex-direction: row;
     overflow-x: auto;
     width: 100%;
-    gap: 8px;
-    padding: 8px 0;
+    gap: 12px;
+    padding: 12px 0;
     margin-top: 8px;
     background: transparent;
     position: static;
@@ -503,10 +507,10 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     background: var(--surface);
   }
   .nav-menu .nav-link { 
-    padding: 8px 16px; 
+    padding: 12px 20px; 
     white-space: nowrap;
-    font-size: 14px;
-    border-radius: 20px;
+    font-size: 16px;
+    border-radius: 25px;
     background: var(--surface);
     border: 1px solid var(--border);
     min-width: fit-content;
@@ -515,6 +519,10 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     font-weight: 500;
     transition: all 0.2s ease;
     cursor: pointer;
+    min-height: 44px; /* iOS recommended touch target */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .nav-menu .nav-link:hover {
     background: var(--green);
@@ -527,12 +535,17 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     border-color: var(--green);
   }
   .cart-badge {
-    font-size: 10px;
-    padding: 2px 6px;
+    font-size: 12px;
+    padding: 3px 8px;
     background: var(--red, #e74c3c);
     color: white;
     border-radius: 50%;
-    margin-left: 4px;
+    margin-left: 6px;
+    min-width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   /* Fix page content spacing on mobile */
