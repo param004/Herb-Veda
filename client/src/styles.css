@@ -409,12 +409,16 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
 @media (max-width: 768px) {
   .hamburger { display: none; } /* Hide hamburger menu */
   .nav-container { 
-    flex-wrap: wrap; 
+    flex-direction: column;
     padding: 12px 15px;
     position: relative;
   }
+  .navbar {
+    padding-bottom: 60px; /* Add extra space for mobile nav */
+  }
   .nav-brand {
-    flex: 1;
+    align-self: flex-start;
+    margin-bottom: 8px;
   }
   .nav-brand span {
     font-size: 1.2rem;
@@ -481,7 +485,7 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     width: 100%;
     gap: 8px;
     padding: 8px 0;
-    margin-top: 50px; /* Space for user dropdown */
+    margin-top: 8px;
     background: transparent;
     position: static;
     box-shadow: none;
@@ -529,6 +533,14 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     color: white;
     border-radius: 50%;
     margin-left: 4px;
+  }
+  
+  /* Fix page content spacing on mobile */
+  .page-container {
+    padding-top: 20px; /* Add extra top padding on mobile */
+  }
+  .products-header {
+    margin-top: 0;
   }
   
   .contact-content { grid-template-columns: 1fr; gap: 40px; }
