@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://backend:5050
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5050:5050"
+    environment:
+      - NODE_ENV=production
+      - PORT=5050
+    env_file:
+      - ./server/.env

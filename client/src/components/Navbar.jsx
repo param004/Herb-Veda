@@ -8,7 +8,6 @@ import logo from '../assets/logo.png';
 export default function Navbar() {
   const { user, setToken, setUser } = useAuth();
   const { getCartItemsCount } = useCart();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showUserProfile, setShowUserProfile] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
   const location = useLocation();
@@ -34,49 +33,7 @@ export default function Navbar() {
           <span>Herb & Veda</span>
         </Link>
 
-        <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-          <Link 
-            to="/" 
-            className={`nav-link ${isActive('/') ? 'active' : ''}`}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Home
-          </Link>
-          <Link 
-            to="/products" 
-            className={`nav-link ${isActive('/products') ? 'active' : ''}`}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Products
-          </Link>
-          {/* About link removed */}
-          <Link 
-            to="/contact" 
-            className={`nav-link ${isActive('/contact') ? 'active' : ''}`}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Contact
-          </Link>
-          
-          <Link 
-            to="/cart" 
-            className={`nav-link cart-link ${isActive('/cart') ? 'active' : ''}`}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Cart
-            {getCartItemsCount() > 0 && (
-              <span className="cart-badge">{getCartItemsCount()}</span>
-            )}
-          </Link>
-          
-          <Link 
-            to="/orders" 
-            className={`nav-link ${isActive('/orders') ? 'active' : ''}`}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Orders
-          </Link>
-          
+        <div className="nav-menu">
           <div className="nav-user">
             <div className="user-dropdown">
               <button 
@@ -102,16 +59,44 @@ export default function Navbar() {
               )}
             </div>
           </div>
+          
+          <Link 
+            to="/" 
+            className={`nav-link ${isActive('/') ? 'active' : ''}`}
+          >
+            Home
+          </Link>
+          <Link 
+            to="/products" 
+            className={`nav-link ${isActive('/products') ? 'active' : ''}`}
+          >
+            Products
+          </Link>
+          <Link 
+            to="/contact" 
+            className={`nav-link ${isActive('/contact') ? 'active' : ''}`}
+          >
+            Contact
+          </Link>
+          
+          <Link 
+            to="/cart" 
+            className={`nav-link cart-link ${isActive('/cart') ? 'active' : ''}`}
+          >
+            Cart
+            {getCartItemsCount() > 0 && (
+              <span className="cart-badge">{getCartItemsCount()}</span>
+            )}
+          </Link>
+          
+          <Link 
+            to="/orders" 
+            className={`nav-link ${isActive('/orders') ? 'active' : ''}`}
+          >
+            Orders
+          </Link>
         </div>
 
-        <div 
-          className={`hamburger ${isMenuOpen ? 'active' : ''}`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
       </div>
       
       {showUserProfile && (
