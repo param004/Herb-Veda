@@ -136,7 +136,13 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
 .page-container { flex: 1; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
 /* Navbar */
-.navbar { background: var(--card); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); }
+.navbar { 
+  background: var(--card); 
+  border-bottom: 1px solid var(--border); 
+  box-shadow: var(--shadow);
+  scroll-behavior: auto;
+  overscroll-behavior: contain;
+}
 .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 70px; }
 .nav-brand { 
   display: flex; 
@@ -579,6 +585,7 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     display: flex !important;
     flex-direction: row;
     overflow-x: auto;
+    overflow-y: hidden;
     width: 100%;
     gap: 16px;
     padding: 16px 0;
@@ -587,7 +594,9 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     position: static;
     box-shadow: none;
     justify-content: flex-start;
-    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
+    -webkit-overflow-scrolling: auto;
+    overscroll-behavior-x: contain;
   }
   .nav-menu::-webkit-scrollbar { 
     height: 3px; 
@@ -613,6 +622,17 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     transition: all 0.2s ease;
     cursor: pointer;
     min-height: 50px; /* Larger touch target */
+    scroll-margin: 0;
+    scroll-padding: 0;
+  }
+  
+  /* Prevent automatic scrolling on focus */
+  .nav-menu .nav-link:focus {
+    scroll-margin: 0;
+    outline-offset: 2px;
+  }
+  
+  .nav-menu .nav-link {
     display: flex;
     align-items: center;
     justify-content: center;
