@@ -53,6 +53,9 @@ export default function ContactPage() {
         <div className="contact-content centered">
           <form className="contact-form" onSubmit={handleSubmit}>
             <h2>Send us a Message</h2>
+            <button type="submit" className="primary contact-submit-btn" disabled={!user}>
+              Send Message
+            </button>
             <div className="form-row">
               <label>
                 Name *
@@ -84,7 +87,6 @@ export default function ContactPage() {
                 required
               ></textarea>
             </label>
-            <button type="submit" className="primary" disabled={!user}>Send Message</button>
           </form>
         </div>
       </div>
