@@ -20,6 +20,12 @@ export default function HomePage() {
           <p>Hello, {user?.name || user?.email}! Discover our authentic Ayurvedic products.</p>
         </header>
         
+        <section className="cta-section">
+          <h2>Start Your Wellness Journey</h2>
+          <p>Explore our range of authentic Ayurvedic products and consultations</p>
+          <button className="cta-button" onClick={handleBrowseProducts}>Browse Products</button>
+        </section>
+
         <section className="features">
           <div className="feature-grid">
             <div className="feature-card">
@@ -31,12 +37,6 @@ export default function HomePage() {
               <p>Traditional formulations prepared by experienced Ayurvedic practitioners.</p>
             </div>
           </div>
-        </section>
-
-        <section className="cta-section">
-          <h2>Start Your Wellness Journey</h2>
-          <p>Explore our range of authentic Ayurvedic products and consultations</p>
-          <button className="cta-button" onClick={handleBrowseProducts}>Browse Products</button>
         </section>
       </div>
     </div>
