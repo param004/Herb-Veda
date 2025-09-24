@@ -414,7 +414,7 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     position: relative;
   }
   .navbar {
-    padding-bottom: 80px; /* Add extra space for bigger mobile nav */
+    padding-bottom: 100px; /* Add extra space for larger mobile nav */
   }
   .nav-brand {
     align-self: flex-start;
@@ -487,9 +487,9 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     flex-direction: row;
     overflow-x: auto;
     width: 100%;
-    gap: 12px;
-    padding: 12px 0;
-    margin-top: 8px;
+    gap: 16px;
+    padding: 16px 0;
+    margin-top: 12px;
     background: transparent;
     position: static;
     box-shadow: none;
@@ -507,45 +507,51 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
     background: var(--surface);
   }
   .nav-menu .nav-link { 
-    padding: 12px 20px; 
+    padding: 16px 24px; 
     white-space: nowrap;
-    font-size: 16px;
-    border-radius: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 30px;
     background: var(--surface);
-    border: 1px solid var(--border);
+    border: 2px solid var(--border);
     min-width: fit-content;
     text-decoration: none;
     color: var(--ink);
-    font-weight: 500;
     transition: all 0.2s ease;
     cursor: pointer;
-    min-height: 44px; /* iOS recommended touch target */
+    min-height: 50px; /* Larger touch target */
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
   .nav-menu .nav-link:hover {
     background: var(--green);
     color: white;
     border-color: var(--green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(124,181,24,0.3);
   }
   .nav-menu .nav-link.active {
     background: var(--green);
     color: white;
     border-color: var(--green);
+    box-shadow: 0 4px 8px rgba(124,181,24,0.3);
   }
   .cart-badge {
-    font-size: 12px;
-    padding: 3px 8px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 10px;
     background: var(--red, #e74c3c);
     color: white;
     border-radius: 50%;
-    margin-left: 6px;
-    min-width: 20px;
-    height: 20px;
+    margin-left: 8px;
+    min-width: 24px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 4px rgba(231,76,60,0.3);
   }
   
   /* Fix page content spacing on mobile */
