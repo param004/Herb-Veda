@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useCart } from '../context/CartContext.jsx';
 import Navbar from '../components/Navbar.jsx';
+import PersonalInfoModal from '../components/PersonalInfoModal.jsx';
 
 export default function CartPage() {
   const { user, token } = useAuth();
   const { cartItems, updateQuantity, removeFromCart, getCartTotal, clearCart } = useCart();
   const navigate = useNavigate();
+  const [showPersonalInfoModal, setShowPersonalInfoModal] = useState(false);
 
   const subtotal = getCartTotal();
   // Removed GST calculation
@@ -16,8 +18,7 @@ export default function CartPage() {
 
   const handleCheckout = async () => {
     if (!user?.phone || !user?.address) {
-      alert('Please complete your personal information before checkout');
-      navigate('/');
+      setShowPersonalInfoModal(true);
       return;
     }
 
@@ -151,6 +152,11 @@ export default function CartPage() {
           </div>
         </div>
       </div>
+      
+      <PersonalInfoModal 
+        isOpen={showPersonalInfoModal} 
+        onClose={() => setShowPersonalInfoModal(false)} 
+      />
     </div>
   );
 }

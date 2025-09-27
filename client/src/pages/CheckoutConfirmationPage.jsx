@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext.jsx';
 import { useCart } from '../context/CartContext.jsx';
 import { createOrderApi } from '../lib/api.js';
 import Navbar from '../components/Navbar.jsx';
+import PersonalInfoModal from '../components/PersonalInfoModal.jsx';
 
 export default function CheckoutConfirmationPage() {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ export default function CheckoutConfirmationPage() {
   const { user, token } = useAuth();
   const { cartItems, clearCart } = useCart();
   const [loading, setLoading] = useState(false);
+  const [showPersonalInfoModal, setShowPersonalInfoModal] = useState(false);
 
   // Helper to safely parse price strings like "₹1,299.50" or "1299" to a number
   const parsePrice = (price) => {
@@ -37,8 +39,7 @@ export default function CheckoutConfirmationPage() {
 
   const handleConfirmOrder = async () => {
     if (!user?.phone || !user?.address) {
-      alert('Please complete your personal information before checkout');
-      navigate('/');
+      setShowPersonalInfoModal(true);
       return;
     }
 
@@ -249,6 +250,11 @@ export default function CheckoutConfirmationPage() {
           </div>
         </div>
       </div>
+      
+      <PersonalInfoModal 
+        isOpen={showPersonalInfoModal} 
+        onClose={() => setShowPersonalInfoModal(false)} 
+      />
     </div>
   );
 }

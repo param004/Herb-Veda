@@ -3008,3 +3008,158 @@ button { font-family: inherit; }
     padding: 12px;
   }
 }
+
+/* Personal Info Modal Styles */
+.personal-info-modal {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 0;
+  max-width: 480px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: scale(0.9);
+  opacity: 0;
+  animation: modalAppear 0.3s ease-out forwards;
+}
+
+@keyframes modalAppear {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--muted);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.modal-content {
+  padding: 0 24px;
+  text-align: center;
+}
+
+.modal-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.modal-content h3 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.modal-content p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.missing-info {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.missing-info h4 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.missing-info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.missing-info li {
+  padding: 6px 0;
+  color: var(--muted);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-actions {
+  padding: 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  border-top: 1px solid var(--border);
+}
+
+.modal-actions .secondary-btn,
+.modal-actions .primary-btn {
+  flex: 1;
+  margin: 0;
+}
+
+.modal-actions .primary-btn {
+  background: linear-gradient(90deg, var(--green), var(--leaf));
+}
+
+/* Mobile Modal Styles */
+@media (max-width: 480px) {
+  .personal-info-modal {
+    width: 95%;
+    max-height: 85vh;
+  }
+  
+  .modal-header {
+    padding: 20px 20px 0;
+  }
+  
+  .modal-content {
+    padding: 0 20px;
+  }
+  
+  .modal-actions {
+    padding: 20px;
+    flex-direction: column;
+  }
+  
+  .modal-actions .secondary-btn,
+  .modal-actions .primary-btn {
+    flex: none;
+  }
+}
