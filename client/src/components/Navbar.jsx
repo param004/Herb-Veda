@@ -72,12 +72,6 @@ export default function Navbar() {
           >
             Products
           </Link>
-          <Link 
-            to="/contact" 
-            className={`nav-link ${isActive('/contact') ? 'active' : ''}`}
-          >
-            Contact
-          </Link>
           
           <Link 
             to="/cart" 
@@ -87,6 +81,13 @@ export default function Navbar() {
             {getCartItemsCount() > 0 && (
               <span className="cart-badge">{getCartItemsCount()}</span>
             )}
+          </Link>
+          
+          <Link 
+            to="/contact" 
+            className={`nav-link ${isActive('/contact') ? 'active' : ''}`}
+          >
+            Contact
           </Link>
           
           <Link 
