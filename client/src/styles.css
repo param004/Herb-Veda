@@ -126,6 +126,89 @@ input:focus, textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px r
 
 .primary:disabled { opacity: 0.7; cursor: not-allowed; }
 
+/* Primary button loading state */
+.primary .loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+
+/* Secondary button for forms */
+.secondary {
+  width: 100%;
+  margin-top: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.3px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.secondary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.secondary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.secondary.loading {
+  pointer-events: none;
+  background: var(--green);
+  color: white;
+  border-color: var(--green);
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 4px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.otp-loading-message {
+  font-size: 14px;
+  color: var(--muted);
+  text-align: center;
+  margin: 8px 0 0 0;
+  font-style: italic;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
 .alert { background: #fde7ea; color: var(--danger); border: 1px solid #f6c2c9; padding: 10px 12px; border-radius: 10px; margin: 8px 0; font-size: 14px; }
 .hint { margin-top: 10px; color: var(--muted); font-size: 12px; text-align: center; }
 .auth-link { color: var(--green); text-decoration: none; font-weight: 600; }

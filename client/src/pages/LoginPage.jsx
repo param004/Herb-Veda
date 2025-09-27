@@ -16,6 +16,7 @@ export default function LoginPage() {
   const [showPwd, setShowPwd] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [otpLoading, setOtpLoading] = useState(false);
 
   async function onSubmit(e) {
     e.preventDefault();
@@ -58,7 +59,7 @@ export default function LoginPage() {
     setError('');
     const emailErr = getEmailError(email);
     if (emailErr) return setError(emailErr);
-    setLoading(true);
+    setOtpLoading(true);
     try {
       await requestLoginOtpApi(email);
       setOtpRequested(true);
@@ -66,7 +67,7 @@ export default function LoginPage() {
       const msg = err?.response?.data?.message || 'Failed to send OTP. Please try again.';
       setError(msg);
     } finally {
-      setLoading(false);
+      setOtpLoading(false);
     }
   }
 
@@ -118,9 +119,19 @@ export default function LoginPage() {
         {otpMode && (
           <>
             <div className="otp-request">
-              <button className="secondary" onClick={handleRequestOtp} disabled={loading || otpRequested}>
-                {otpRequested ? 'OTP Sent' : 'Send OTP to Email'}
+              <button 
+                className={`secondary ${otpLoading ? 'loading' : ''}`} 
+                onClick={handleRequestOtp} 
+                disabled={otpLoading || otpRequested}
+              >
+                {otpLoading && <span className="loading-spinner"></span>}
+                {otpLoading ? 'Please Wait...' : otpRequested ? 'OTP Sent ✓' : 'Send OTP to Email'}
               </button>
+              {otpLoading && (
+                <p className="otp-loading-message">
+                  Sending OTP to your email address...
+                </p>
+              )}
             </div>
             <label>
               Enter OTP

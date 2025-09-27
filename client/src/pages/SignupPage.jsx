@@ -141,8 +141,14 @@ export default function SignupPage() {
               />
             </label>
             <button className="primary" type="submit" disabled={loading}>
-              {loading ? 'Sending OTP…' : 'Send OTP'}
+              {loading && <span className="loading-spinner"></span>}
+              {loading ? 'Please Wait...' : 'Send OTP'}
             </button>
+            {loading && (
+              <p className="otp-loading-message">
+                Sending OTP to your email address...
+              </p>
+            )}
           </>
         )}
 
