@@ -14,6 +14,14 @@
 
 * { box-sizing: border-box; }
 html, body, #root { height: 100%; }
+
+/* Mobile-first optimizations */
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  touch-action: manipulation;
+}
+
 body { 
   margin: 0; 
   font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; 
@@ -21,6 +29,9 @@ body {
   color: var(--ink); 
   line-height: 1.6;
   font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* Typography Classes */
@@ -2737,5 +2748,263 @@ button { font-family: inherit; }
   
   .order-actions {
     gap: 15px;
+  }
+}
+
+/* Mobile-First Responsive Design for 360px Android/iPhone devices */
+@media (max-width: 414px) {
+  /* Global mobile optimizations */
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .page-container {
+    padding: 0 12px;
+  }
+  
+  /* Navigation optimizations for 360px screens */
+  .nav-container {
+    padding: 8px 12px;
+  }
+  
+  .nav-brand {
+    gap: 6px;
+  }
+  
+  .nav-brand span {
+    font-size: 1rem;
+  }
+  
+  .nav-logo {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .nav-menu {
+    gap: 12px;
+    padding: 12px 0;
+  }
+  
+  .nav-menu .nav-link {
+    padding: 12px 18px;
+    font-size: 14px;
+    min-height: 44px;
+  }
+  
+  .navbar {
+    padding-bottom: 80px;
+  }
+  
+  /* Header optimizations */
+  .hero {
+    padding: 20px 0;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+  
+  .hero p {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  
+  .page-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+  
+  .page-header p {
+    font-size: 14px;
+  }
+  
+  /* Product cards for small screens */
+  .products-showcase {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px 0;
+  }
+  
+  .product-showcase-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  
+  .product-title {
+    font-size: 16px;
+  }
+  
+  .product-desc {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .benefit-tag {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+  
+  .current-price {
+    font-size: 16px;
+  }
+  
+  .original-price {
+    font-size: 12px;
+  }
+  
+  .add-to-cart-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  /* CTA Section for mobile */
+  .cta-section {
+    padding: 40px 0;
+    margin: 30px 0;
+  }
+  
+  .cta-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  
+  .cta-section p {
+    font-size: 14px;
+  }
+  
+  .cta-button {
+    padding: 14px 24px;
+    font-size: 16px;
+  }
+  
+  /* Feature cards mobile optimization */
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .feature-card {
+    padding: 16px;
+  }
+  
+  .feature-card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .feature-card p {
+    font-size: 13px;
+  }
+  
+  /* Auth forms mobile optimization */
+  .auth-container {
+    padding: 16px;
+  }
+  
+  .card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  .brand h1 {
+    font-size: 1.5rem;
+  }
+  
+  .brand img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Contact form mobile */
+  .contact-form {
+    padding: 20px;
+  }
+  
+  .contact-submit-btn {
+    padding: 14px 20px !important;
+    font-size: 16px !important;
+    min-height: 48px !important;
+  }
+  
+  /* Cart page mobile */
+  .cart-content {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .cart-item {
+    padding: 12px;
+  }
+  
+  .cart-summary {
+    padding: 16px;
+  }
+  
+  /* Orders page mobile */
+  .order-card {
+    padding: 16px;
+  }
+  
+  .order-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  /* Button optimizations for touch */
+  button, .primary, .secondary, .cta-button {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+  
+  /* Input field optimizations */
+  input, textarea, select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 12px;
+    border-radius: 8px;
+  }
+  
+  /* Modal and popup adjustments */
+  .modal-overlay {
+    padding: 16px;
+  }
+  
+  /* Filters mobile optimization */
+  .products-filters {
+    padding: 0 12px;
+    gap: 8px;
+  }
+  
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
+
+/* Extra small devices (320px and down) */
+@media (max-width: 320px) {
+  .page-container {
+    padding: 0 8px;
+  }
+  
+  .nav-menu .nav-link {
+    padding: 10px 14px;
+    font-size: 12px;
+    min-height: 40px;
+  }
+  
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+  
+  .cta-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .product-showcase-card {
+    padding: 12px;
   }
 }
