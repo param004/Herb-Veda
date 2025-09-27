@@ -19,13 +19,37 @@ import ResetPasswordPage from './pages/ResetPasswordPage.jsx';
 
 function PrivateRoute({ children }) {
   const { token } = useAuth();
-  if (!token) return <Navigate to="/login" replace />;
+  
+  if (!token) {
+    // Check if this is the user's first visit
+    const hasVisited = localStorage.getItem('hv_has_visited');
+    
+    if (!hasVisited) {
+      // Mark as visited and redirect to signup for first-time users
+      localStorage.setItem('hv_has_visited', 'true');
+      return <Navigate to="/signup" replace />;
+    }
+    
+    // Return visitors go to login
+    return <Navigate to="/login" replace />;
+  }
+  
   return children;
 }
 
 function PublicRoute({ children }) {
   const { token } = useAuth();
-  if (token) return <Navigate to="/" replace />;
+  
+  if (token) {
+    // User is authenticated, redirect to home
+    return <Navigate to="/" replace />;
+  }
+  
+  // For signup page, mark that user has visited if they reach signup
+  if (window.location.pathname === '/signup') {
+    localStorage.setItem('hv_has_visited', 'true');
+  }
+  
   return children;
 }
 
