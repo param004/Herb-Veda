@@ -7,7 +7,7 @@ import logo from '../assets/logo.png';
 
 export default function Navbar() {
   const { user, setToken, setUser } = useAuth();
-  const { getCartItemsCount } = useCart();
+  const { getCartItemsCount, clearCart } = useCart();
   const [showUserProfile, setShowUserProfile] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
   const location = useLocation();
@@ -15,6 +15,7 @@ export default function Navbar() {
   const logout = () => {
     setToken('');
     setUser(null);
+    clearCart(); // Clear cart on logout
     setShowUserDropdown(false);
   };
 

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
+import { useCart } from '../context/CartContext.jsx';
 import { loginApi, requestLoginOtpApi, verifyLoginOtpApi } from '../lib/api.js';
 import { getEmailError } from '../utils/validation.js';
 import logo from '../assets/logo.png';
@@ -8,6 +9,7 @@ import logo from '../assets/logo.png';
 export default function LoginPage() {
   const navigate = useNavigate();
   const { setToken, setUser } = useAuth();
+  const { clearCart } = useCart();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [otpMode, setOtpMode] = useState(false);
@@ -31,6 +33,10 @@ export default function LoginPage() {
       const { token, user } = otpMode
         ? await verifyLoginOtpApi(email, code)
         : await loginApi(email, password);
+      
+      // Clear cart to prevent showing previous user's items
+      clearCart();
+      
       setToken(token);
       setUser(user);
       navigate('/', { replace: true });

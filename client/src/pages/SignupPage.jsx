@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
+import { useCart } from '../context/CartContext.jsx';
 import { registerApi, requestRegisterOtpApi, verifyRegisterOtpApi } from '../lib/api.js';
 import logo from '../assets/logo.png';
 import { getEmailError, getPasswordError } from '../utils/validation.js';
@@ -8,6 +9,7 @@ import { getEmailError, getPasswordError } from '../utils/validation.js';
 export default function SignupPage() {
   const navigate = useNavigate();
   const { setToken, setUser } = useAuth();
+  const { clearCart } = useCart();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -62,6 +64,10 @@ export default function SignupPage() {
       setLoading(true);
       try {
         const { token, user } = await verifyRegisterOtpApi(email, code);
+        
+        // Clear cart to prevent showing any previous items
+        clearCart();
+        
         setToken(token);
         setUser(user);
         navigate('/', { replace: true });

@@ -1,11 +1,20 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { useAuth } from './AuthContext.jsx';
 import { useToast } from './ToastContext.jsx';
 
 const CartContext = createContext(null);
 
 export function CartProvider({ children }) {
+  const { user } = useAuth();
+  
+  // Get user-specific cart key
+  const getCartKey = () => {
+    return user?.id ? `hv_cart_${user.id}` : 'hv_cart_guest';
+  };
+  
   const [cartItems, setCartItems] = useState(() => {
-    const saved = localStorage.getItem('hv_cart');
+    const cartKey = user?.id ? `hv_cart_${user.id}` : 'hv_cart_guest';
+    const saved = localStorage.getItem(cartKey);
     return saved ? JSON.parse(saved) : [];
   });
   // Toasts
@@ -18,9 +27,19 @@ export function CartProvider({ children }) {
     showToast = null;
   }
 
+  // Save cart to localStorage with user-specific key
   useEffect(() => {
-    localStorage.setItem('hv_cart', JSON.stringify(cartItems));
-  }, [cartItems]);
+    const cartKey = getCartKey();
+    localStorage.setItem(cartKey, JSON.stringify(cartItems));
+  }, [cartItems, user?.id]);
+
+  // Load cart when user changes
+  useEffect(() => {
+    const cartKey = getCartKey();
+    const saved = localStorage.getItem(cartKey);
+    const userCart = saved ? JSON.parse(saved) : [];
+    setCartItems(userCart);
+  }, [user?.id]);
 
   const addToCart = (product, quantity = 1) => {
     setCartItems(prev => {
@@ -58,6 +77,9 @@ export function CartProvider({ children }) {
 
   const clearCart = () => {
     setCartItems([]);
+    // Also remove from localStorage
+    const cartKey = getCartKey();
+    localStorage.removeItem(cartKey);
   };
 
   const getCartTotal = () => {
