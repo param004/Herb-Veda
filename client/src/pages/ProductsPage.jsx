@@ -23,7 +23,6 @@ export default function ProductsPage() {
 
   const handleAddToCart = (product) => {
     addToCart(product);
-    alert(`${product.name} added to cart!`);
   };
   
   const products = [
@@ -31,7 +30,7 @@ export default function ProductsPage() {
       id: 1,
       name: "Lip Balm (5gm)",
       price: "₹100",
-      originalPrice: "₹149",
+      originalPrice: "₹110",
       image: lipBalmImage,
       category: "Lip care",
       
@@ -42,7 +41,7 @@ export default function ProductsPage() {
       id: 2,
       name: "Tinted Lip Balm",
       price: "₹150",
-      originalPrice: "₹550",
+      originalPrice: "₹165",
       image: tintedLipBalmImage,
       category: "Lip care",
       
@@ -53,7 +52,7 @@ export default function ProductsPage() {
       id: 3,
       name: "Bhringadi Shampoo",
       price: "₹250",
-      originalPrice: "₹380",
+      originalPrice: "₹275",
       image: bhringadiShampooImage,
       category: "Hair care",
       
@@ -64,7 +63,7 @@ export default function ProductsPage() {
       id: 4,
       name: "Bhringadi Hair Oil",
       price: "₹280",
-      originalPrice: "₹825",
+      originalPrice: "₹310",
       image: hairOilImage,
       category: "Hair care",
       
@@ -75,7 +74,7 @@ export default function ProductsPage() {
       id: 5,
       name: "Sandalwood Soap",
       price: "₹70",
-      originalPrice: "₹790",
+      originalPrice: "₹90",
       image: kesudaSoapImage,
       category: "Body care",
       
@@ -86,7 +85,7 @@ export default function ProductsPage() {
       id: 6,
       name: "Kesuda Soap",
       price: "₹60",
-      originalPrice: "₹450",
+      originalPrice: "₹80",
       image: kesudaSoapImage,
       category: "Body care",
       
@@ -97,7 +96,7 @@ export default function ProductsPage() {
       id: 7,
       name: "Rose Soap",
       price: "₹70",
-      originalPrice: "₹450",
+      originalPrice: "₹90",
       image: roseSoapImage,
       category: "Body care",
       
@@ -108,7 +107,7 @@ export default function ProductsPage() {
       id: 8,
       name: "Multani Mitti Soap",
       price: "₹60",
-      originalPrice: "₹450",
+      originalPrice: "₹80",
       image: multaniMittiSoapImage,
       category: "Body care",
       
@@ -119,7 +118,7 @@ export default function ProductsPage() {
       id: 9,
       name: "Rose Foaming Face Wash",
       price: "₹170",
-      originalPrice: "₹450",
+      originalPrice: "₹200",
       image: roseFoamingFaceWashImage,
       category: "Face care",
       
@@ -130,7 +129,7 @@ export default function ProductsPage() {
       id: 10,
       name: "Brightening Face Oil",
       price: "₹250",
-      originalPrice: "₹450",
+      originalPrice: "₹275",
       image: brightingFaceOilImage,
       category: "Face care",
       
@@ -141,7 +140,7 @@ export default function ProductsPage() {
       id: 11,
       name: "Brightening Body Wash",
       price: "₹250",
-      originalPrice: "₹450",
+      originalPrice: "₹275",
       image: brighteningBodyWashImage,
       category: "Skin care",
       
@@ -152,7 +151,7 @@ export default function ProductsPage() {
       id: 12,
       name: "Rose Water",
       price: "₹120",
-      originalPrice: "₹450",
+      originalPrice: "₹140",
       image: roseWaterImage,
       category: "Skin care",
       
@@ -163,7 +162,7 @@ export default function ProductsPage() {
       id: 13,
       name: "Ayur Wax Painless Hair Removal Powder",
       price: "₹200",
-      originalPrice: "₹450",
+      originalPrice: "₹220",
       image: waxImage,
       category: "Other",
       description: "PAINLESS AND EASY TO USE,ALL AYURVEDA INGREDIENTS MAKES SKIN LUSTROUS AND HYDRATED",
@@ -173,7 +172,7 @@ export default function ProductsPage() {
       id: 14,
       name: "Swarnaprasan (Gold Drops)",
       price: "₹650",
-      originalPrice: "₹450",
+      originalPrice: "₹720",
       image: swarnaprashanImage,
       category: "Other",
       description: "FOR CHILDREN FROM BIRTH TO 16 YEARS OLD,BOOST IMMUNITY,IMPROVES MEMORY AND CONCENTRATION,IMPROVES SLEEP QUALITY",
