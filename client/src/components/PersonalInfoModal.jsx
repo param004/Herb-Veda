@@ -35,9 +35,9 @@ export default function PersonalInfoModal({ isOpen, onClose }) {
           <div className="missing-info">
             <h4>Required Information:</h4>
             <ul>
-              <li>📞 Phone Number</li>
-              <li>🏠 Delivery Address</li>
-              <li>🌍 City, State & PIN Code</li>
+              <li>Phone Number</li>
+              <li>Delivery Address</li>
+              <li>City, State & PIN Code</li>
             </ul>
           </div>
         </div>
